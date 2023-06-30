@@ -1,0 +1,1 @@
+ajaxRequest('GET', "../php/request.php/longlat", display_long_lat); // permet de recuperer toute la base

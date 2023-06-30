@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 body {
-    font-family: monospace;
+    /*background-color: red;*/
 }
 
 .Navbar {
@@ -79,27 +79,40 @@ a {
     outline: none;
     text-decoration: none;
     padding: 2px 1px 0;
-  }
+ }
   
   a:link {
     color: #265301;
   }
-  
+
   a:visited {
     color: #265301;
   }
-  
+
   a:focus {
     border-bottom: 1px solid;
     background: #BAE498;
   }
-  
+
   a:hover {
     border-bottom: 1px solid;
     background: #CDFEAA;
   }
-  
+
   a:active {
     background: #265301;
     color: #CDFEAA;
   }
+
+.carte {
+  position: relative;
+  align-content: space-between;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carte_item {
+  width: auto;
+  height: auto;
+}

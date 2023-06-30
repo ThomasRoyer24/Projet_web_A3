@@ -1,0 +1,213 @@
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <link href="../css/default.css" rel="stylesheet">
+    <link href="../css/accident.css" rel="stylesheet">
+    <script src='https://cdn.plot.ly/plotly-2.24.1.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js'></script>
+    <title> Vigilaccident</title>
+</head>
+
+<body>
+    <section>
+        <header>
+            <a href="../index.html"><img src="../img/logo.svg" class="logo"></a>
+            <ul class="navigation">
+                <li><a href="../index.html">Accueil</a></li>
+                <li><a href="accident.html">Accident</a></li>
+                <li><a href="cluster.html">Cluster</a></li>
+            </ul>
+        </header>
+        <!-- commentaire -->
+        <div class="main">
+            <div class="popup" id="popup">
+                <div class="popup_content">
+                    <div class="popup_head">
+                        <h2>Ajouter un accident</h2>
+                        <span class="close" id="close_popup"><img src="../img/close.svg" alt="close"></span>
+                    </div>
+                    <div class="add_1">
+                        <div class="age_add">
+                            <input type="number" placeholder="Age" id="age_add">
+                        </div>
+                        <div class="date_add">
+                            <input type="date" id='date_add'>
+                        </div>
+                        <div class="heure_add">
+                            <input type="time" id='heure_add'>
+                        </div>
+                    </div>
+                    <div class="add_2">
+                        <div class="ville_add">
+                            <input type="text" placeholder="Ville" id='ville_add'>
+                        </div>
+                        <div class="latitude_add">
+                            <input type="text" placeholder="Latitude" id='latitude_add'>
+                        </div>
+                        <div class="longitude_add">
+                            <input type="text" placeholder="Longitude" id='longitude_add'>
+                        </div>
+                    </div>
+                    <div class="add_3">
+                        <div class="atmo_add">
+                            <select name="" id="atmo_select_add">
+
+                            </select>
+                        </div>
+                        <div class="luminosite_add">
+                            <select name="" id="luminosite_select_add">
+
+                            </select>
+                        </div>
+                    </div>
+                    <div class="add_4">
+                        <div class="route_add">
+                            <select name="" id="route_select_add">
+
+                            </select>
+                        </div>
+                        <div class="securite_add">
+                            <select name="" id="securite_select_add">
+
+                            </select>
+                        </div>
+                    </div>
+                    <div class="popup_foot">
+                        <p id="statue"></p>
+                        <button class="add_accident" id='add_accident'>Ajouter</button>
+
+                    </div>
+                </div>
+            </div>
+            <div class="parent">
+                <div class="div1">
+                    <div class="filter">
+                        <div class="filter_1">
+                            <div class="age_filter">
+                                <input type="number" placeholder="Age" id='filtre_age'>
+                            </div>
+                            <div class="date_filter">
+                                <input type="date" id="filtre_date">
+                            </div>
+                            <div class="heure_filter">
+                                <input type="time" id='filtre_heure'>
+                            </div>
+                        </div>
+                        <div class="filter_2">
+                            <div class="ville_filter">
+                                <input type="text" placeholder="Ville" id='filtre_ville'>
+                            </div>
+                            <div class="latitude_filter">
+                                <input type="text" placeholder="Latitude" id='filtre_latitude'>
+                            </div>
+                            <div class="longitude_filter">
+                                <input type="text" placeholder="Longitude" id='filtre_longitude'>
+                            </div>
+                        </div>
+                        <div class="filter_3">
+                            <div class="atmo_filter">
+                                <select name="" id="filtre_atmo">
+                                    <option value="-1">Conditions atmospheriques</option>
+                                </select>
+                            </div>
+                            <div class="luminosite_filter">
+                                <select name="" id="filtre_luminosite">
+                                    <option value="-1">Luminosité</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="filter_4">
+                            <div class="route_filter">
+                                <select name="" id="filtre_route">
+                                    <option value="-1">Etat route</option>
+                                </select>
+                            </div>
+                            <div class="securite_filter">
+                                <select name="" id="filtre_securite">
+                                    <option value="-1">Securité</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="filter_5">
+                            <div class="remove_filter">
+                                <p id="Retirer_filtres"> Retirer les filtres</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="div2">
+                    <div id='myDiv' style="height:100%"><!-- Plotly chart will be drawn inside this DIV --></div>
+                </div>
+                <div class="div3" id="div3">
+
+                </div>
+                <div class="div4" id="div4">
+
+                </div>
+            </div>
+            <div class="loading">
+                <button class="load" id="load">
+                    Charger plus
+                </button>
+            </div>
+            <div class="choice" id="pop_choice">
+                <button id="add_acc">
+                    Ajouter un accident
+                </button>
+                <a href="cluster.html">
+                <button>
+                    Afficher les clusters
+                </button>
+            </a>
+            </div>
+            <button class="add" id="add_button" onclick="toggleActiveClass()">
+                <img src="../img/cross.svg" id="cross_add" alt="add">
+            </button>
+        </div>
+    </section>
+
+    <script>
+        var but = document.getElementById('add_acc');
+        var pop = document.getElementById('popup');
+        var choice = document.getElementById('pop_choice');
+        var close_but = document.getElementById('close_popup');
+        var cross = document.getElementById('cross_add');
+        but.onclick = function () {
+            pop.style.display = "block";
+            choice.classList.remove('active');
+            cross.style.transform = 'rotate(0deg)';
+        }
+        close_but.onclick = function () {
+            pop.style.display = "none";
+        }
+        window.onclick = function (event) {
+            if (event.target == pop) {
+                pop.style.display = "none";
+            }
+        }
+
+        function toggleActiveClass() {
+            var but = document.getElementById('add_button');
+            var pop = document.getElementById('pop_choice');
+            var cross = document.getElementById('cross_add');
+            if (pop.classList.contains('active')) {
+                pop.classList.remove('active');
+                cross.style.transform = 'rotate(0deg)';
+            } else {
+                pop.classList.add('active');
+                cross.style.transition = 'transform 0.3s';
+                cross.style.transform = 'rotate(45deg)';
+            }
+        }
+    </script>
+    <script src="../js/ajax.js"></script>
+    <script src="../js/listen.js"></script>
+    <script src='../js/carte.js'></script>
+    <script src='../js/accident.js'></script>
+
+
+
+</body>
+
+</html>

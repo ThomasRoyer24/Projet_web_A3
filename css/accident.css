@@ -1,0 +1,336 @@
+.main{
+    margin-top: 50px;
+}
+
+.add{
+    width:50px;
+    height: 50px;
+    border-radius:100px;
+    background-color: var(--red);
+    border: 2px solid var(--black);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom:50px;
+    right: 50px;
+    box-shadow: -2px 2px 6px 0px rgba(0, 0, 0, 0.25);
+}
+
+.add:hover{
+    background-color: var(--red2);
+}
+
+.choice.active {
+    width:150px;
+    height:200px;
+    background-color: var(--white);
+    position: fixed;
+    bottom:75px;
+    right: 75px;
+    border-radius: 13px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    border: 2px solid var(--black);
+    box-shadow: -5px 5px 6px 0px rgba(0, 0, 0, 0.25);
+    padding: 10px;
+}
+
+
+.choice button{
+    background-color: var(--red);
+    border: 2px solid var(--black);
+    color: var(--white);
+    padding: 15px 25px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: 600;
+}
+
+.choice button:hover{
+    background-color: var(--red2);
+}
+
+.choice{
+    display: none;
+}
+
+.add svg{
+    transition: 1s;
+}
+
+.popup{
+display: none;
+position: fixed;
+z-index: 1;
+padding-top: 100px;
+left: 0;
+top: 0;
+width: 100%;
+height: 100%;
+overflow: auto;
+background-color: rgb(0,0,0);
+background-color: rgba(0,0,0,0.4);
+}
+
+.popup_content{
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    width: 80%;
+    height: 60vh;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+@-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0} 
+    to {top:0; opacity:1}
+  }
+  
+  @keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+  }
+
+.popup h2{
+    font-size: 35px;
+}
+
+.add_1, .add_2, .add_3, .add_4{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    min-width: 50vw;
+    margin-top: 3.2vh;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.add_1 div input, .add_2 div input{
+    width: 18vw;
+    min-width: 110px;
+    border: 2px solid var(--black);
+    border-radius: 13px;
+    background-color: var(--white);
+    height: 6vh;
+    padding: 5px;
+    font-weight: 500;
+}
+
+.add_3 div select, .add_4 div select{
+    width: 25vw;
+    min-width: 150px;
+    border: 2px solid var(--black);
+    border-radius: 13px;
+    background-color: var(--white);
+    height: 6vh;
+    padding: 5px;
+    font-weight: 500;
+}
+
+
+.popup button{
+    background-color: var(--red);
+    border: 2px solid var(--black);
+    color: var(--white);
+    padding: 15px 35px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: 600;
+}
+
+.popup button:hover{
+    background-color: var(--red2);
+}
+
+.popup_head{
+display: flex;
+align-items: center;
+justify-content: space-between;
+}
+
+.close:hover{
+    cursor: pointer;
+}
+
+.popup_foot{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: 25px;
+}
+
+.parent {
+    width: 100vw;
+    display: grid;
+    grid-template-columns: 0.3fr 1.5fr 0.15fr 1fr 0.15fr 1fr 0.3fr;
+    grid-template-rows: 1fr -20px 1fr 20px 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 20px;
+}
+    
+.div1 { 
+    grid-area: 1 / 2 / 2 / 7;
+    background-color:var(--white);
+    border-radius: 20px;
+    border: 2px solid var(--black);
+
+}
+.div2 {
+    grid-area: 3 / 2 / 6 / 3;
+    height: 98vh;
+    position: sticky;
+    top: 1vh;
+}
+.div3 {
+    grid-area: 3 / 4 / 6 / 5;
+}
+.div4 {
+    grid-area: 3 / 6 / 6 / 7;
+}
+
+.filter{
+    padding: 20px;
+
+}
+
+.filter_1, .filter_2, .filter_3, .filter_4{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    min-width: 50vw;
+    margin-top: 3.2vh;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.filter_5{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: 3.2vh;
+}
+
+.filter_1 div input, .filter_2 div input{
+    width: 18vw;
+    min-width: 110px;
+    border: 2px solid var(--black);
+    border-radius: 13px;
+    background-color: var(--white);
+    height: 6vh;
+    padding: 5px;
+    font-weight: 500;
+}
+
+.filter_3 div select, .filter_4 div select{
+    width: 25vw;
+    min-width: 150px;
+    border: 2px solid var(--black);
+    border-radius: 13px;
+    background-color: var(--white);
+    height: 6vh;
+    padding: 5px;
+    font-weight: 500;
+}
+
+.more_filter{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.more_filter img{
+    margin-right: 10px;
+}
+
+.remove_filter{
+    color: var(--red);
+    font-weight:700;
+    cursor: pointer;
+}
+
+.card{
+    width: 100%;
+    height: 45vh;
+    background-color: white;
+    border-radius: 20px;
+    padding: 30px 20px 20px 20px;
+    box-shadow: 2px 6px 6px 0px rgba(0, 0, 0, 0.25);
+    margin-bottom: 50px;
+}
+
+.place_card, .time_card, .atmo_card, .route_card, .luminosite_card, .securite_card{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 5%;
+}
+
+.place_card img, .time_card img, .atmo_card img, .route_card img, .luminosite_card img, .securite_card img{
+    margin-right: 10px;
+}
+
+.age_card{
+    display: flex;
+    align-items: center;
+}
+
+.age_card img{
+    margin-right:10px;
+}
+
+.gravite{
+    color: var(--red);
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+    justify-content: space-around;
+}
+
+.gravite a{
+    text-decoration: none;
+    color: var(--red);
+    display: flex;
+    align-items:center;
+    justify-content: space-around;
+}
+
+.gravite:hover{
+    cursor: pointer;
+}
+
+.gravite img{
+    margin-left: 10px;
+}
+
+.head_card{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 5%;
+}
+
+.loading button{
+    margin-left: 65vw;
+    margin-bottom:50px;
+    background-color: var(--red);
+    border: 2px solid var(--black);
+    color: var(--white);
+    padding: 15px 25px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: 600;
+}
+
+

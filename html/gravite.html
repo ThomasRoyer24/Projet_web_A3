@@ -1,0 +1,86 @@
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <link href="../css/default.css" rel="stylesheet">
+    <link href="../css/gravite.css" rel="stylesheet">
+    <script src='https://cdn.plot.ly/plotly-2.24.1.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js'></script>
+    <title> Vigilaccident</title>
+</head>
+
+<div id="loader"></div>
+<body>
+    <section>
+        <header>
+            <a href="../index.html"><img src="../img/logo.svg" class="logo"></a>
+            <ul class="navigation">
+                <li><a href="../index.html">Accueil</a></li>
+                <li><a href="accident.html">Accident</a></li>
+                <li><a href="cluster.html">Cluster</a></li>
+            </ul>
+        </header>
+        <!-- commentaire -->
+        <div class="main">
+            <div class="parent">
+                <div id="div1" class="div1">
+                    <h2>KNN</h2>
+                    <div class="smiley" id="smiley1"></div>
+                    <div id="descr1"></div>
+                </div>
+                <div id="div2" class="div2">
+                    <h2>SVM</h2>
+                    <div class="smiley" id="smiley2"></div>
+                    <div id="descr2"></div>
+                </div>
+                <div id="div3" class="div3">
+                    <h2>Random Forest</h2>
+                    <div class="smiley" id="smiley3"></div>
+                    <div id="descr3"></div>
+                </div>
+                <div id="div4" class="div4">
+                    <h2>MLP</h2>
+                    <div class="smiley" id="smiley4">
+                    </div>
+                    <div id="descr4"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="../js/ajax.js"></script>
+    <script>
+        let params = new URLSearchParams(location.search);
+        var id = (params.get('id'));
+        var url = "../php/request.php/id_accident?id=";
+        var res = url + id;
+        var loader = document.getElementById('loader');
+        loader.classList.remove('hide-loader');
+
+
+        ajaxRequest('GET', res, (data) => {
+            console.log(data[1][12])
+            for (let j = 0; j < 4; j++) {
+                if (data[j][12] == 1) {
+                    document.getElementById("smiley" + (j + 1)).innerHTML += `<img src="../img/content.svg" alt="content">`
+                    document.getElementById("descr" + (j + 1)).innerHTML += `<p>Résultat : Indemne</p>`
+                }
+                if (data[j][12] == 2) {
+                    document.getElementById("smiley" + (j + 1)).innerHTML += `<img src="../img/moyen.svg" alt="content">`
+                    document.getElementById("descr" + (j + 1)).innerHTML += `<p>Résultat : Bléssé léger</p>`
+                }
+                if (data[j][12] == 3) {
+                    document.getElementById("smiley" + (j + 1)).innerHTML += `<img src="../img/triste.svg" alt="content">`
+                    document.getElementById("descr" + (j + 1)).innerHTML += `<p>Résultat : Blessé hospitalisé</p>`
+                }
+                if (data[j][12] == 4) {
+                    document.getElementById("smiley" + (j + 1)).innerHTML += `<img src="../img/mort.svg" alt="content">`
+                    document.getElementById("descr" + (j + 1)).innerHTML += `<p>Résultat : Tué</p>`
+                }
+            }
+            loader.classList.add('hide-loader');
+        }
+        );        
+    </script>
+</body>
+
+</html>

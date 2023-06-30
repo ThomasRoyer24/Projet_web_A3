@@ -1,0 +1,81 @@
+.parent {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 15px;
+    grid-row-gap: 15px;
+}
+    
+.div1 {
+    grid-area: 1 / 1 / 2 / 2; 
+    width: 40vw;
+    height:40vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    font-weight: 600;
+
+}
+.div2 {
+    grid-area: 1 / 2 / 2 / 3; 
+    width: 40vw;
+    height:40vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    font-weight: 600;
+
+}
+.div3 {
+    grid-area: 2 / 1 / 3 / 2;
+    width: 40vw;
+    height:40vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    font-weight: 600;
+
+}
+.div4 {
+    grid-area: 2 / 2 / 3 / 3; 
+    width: 40vw;
+    height:40vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    font-weight: 600;
+}
+
+.smiley img{
+    width: 12vw;
+    height: auto;
+}
+
+#loader {
+    border: 8px solid #f3f3f3;
+    border-top: 8px solid var(--red);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+    position: fixed; /* Position the loader relative to the viewport */
+    top: 50%; /* Position vertically at the center */
+    left: 50%; /* Position horizontally at the center */
+    transform: translate(-50%, -50%); /* Adjust the position to center the loader */
+    z-index: 9999; /* Ensure the loader appears above other elements */
+    margin: 0 auto;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  .hide-loader {
+    display: none;
+  }
+  

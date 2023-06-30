@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+*{
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --red: #C00000;
+    --red2: #ad0000;
+    --black : #0D0D0D;
+    --white : #F2F2F2;
+}
+
+
+button {
+    cursor: pointer;
+  }
+
+body{
+    overflow-x: hidden;
+    background: var(--white);
+}
+
+section{
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    padding: 50px 100px 0 100px ;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+header{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    
+}
+
+header .logo{
+    position: relative;
+    min-width: 80px;
+    max-width: 100px;
+}
+
+header ul{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header ul li{
+    list-style: none;
+    display: flex;
+    margin-left: 30px;
+}
+
+header ul li a{
+    display: inline-block;
+    color: var(--black);
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.pic{
+    width: 85vw;
+    height: 60vh;
+    border-radius: 50px;
+    margin-bottom: 20px;
+}
+
+.pic img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    border-radius: 45px;
+
+}
+
+.bottom{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.bottom h2{
+    color: #C00000;
+}
+
+.visualiser, .predire, .informer{
+    display: flex;
+    flex-direction: column;
+    width: 15%;
+    align-items: center;
+    text-align: center;
+}
+
+.visualiser svg, .predire svg, .informer svg{
+    margin-bottom: 20px;
+}

@@ -1,0 +1,48 @@
+<!--
+\\Author: Thomas Royer, Tesniere Mathéo, Bastien Huard
+\\Login : etu745
+\\Groupe: ISEN X GROUPE 7
+\\Annee: 2023
+-->
+
+<!doctype html>
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8">
+  <link href="../css/default.css" rel="stylesheet">
+
+  <script src='https://cdn.plot.ly/plotly-2.24.1.min.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js'></script>
+
+
+  <title> Vigilaccident</title>
+</head>
+
+<body>
+  <section>
+    <header>
+      <a href="../index.html"><img src="../img/logo.svg" class="logo"></a>
+      <ul class="navigation">
+        <li><a href="../index.html">Accueil</a></li>
+        <li><a href="accident.html">Accident</a></li>
+        <li><a href="cluster.html">Cluster</a></li>
+      </ul>
+    </header>
+    <!-- Content -->
+    <div>
+      <div class="carte">
+        <div class="carte_item">
+
+          <div id='myDiv'><!-- Plotly chart will be drawn inside this DIV --></div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+<script src='../js/ajax.js'></script>
+<script src='../js/carte.js'></script>
+<script src='../js/cluster.js'></script>
+
+</html>
